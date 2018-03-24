@@ -1,3 +1,14 @@
 <h3>Trainer</h3>
 <p>Name: <%= @trainer.name if @trainer.name %></p>
 <p>Email: <%= @trainer.email if @trainer.email %></p>
+<div class="large-8 columns">
+  <h1> <%= @trainer.name %>'s Pokemon </h1>
+
+  <% @trainer.pokemon.each do |r| %>
+    <%= image_tag("pokemon/#{r.ndex}.png", alt: "pokemon") %>
+    <b><%= r.name %>  </b><%= r.level %> <%= r.health %> <%= button_to "Damage!", damage_path(id: r), :class => "button medium", :method => :patch %>
+    <br />
+  <% end %>
+</div>
+
+
